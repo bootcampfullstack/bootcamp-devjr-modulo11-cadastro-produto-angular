@@ -55,4 +55,13 @@ export class ProductsComponent implements OnInit {
   create(){
     this.showForm = true;
   }
+
+  edit(product:Product){
+    console.log(product);
+  }
+
+  delete(product:Product){
+    console.log(product);
+  }
+
 }
