@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   categories: Category[] = [];
 
   product: Product = {} as Product;
+  deleteProduct: Product = {} as Product;
   products: Product[] = [];
 
   showForm: boolean = false;
@@ -43,7 +44,6 @@ export class ProductsComponent implements OnInit {
   }
 
   saveProduct(save: boolean) {
-
     if (save) {
       if (this.isEditing) {
         this.productService.update(this.product).subscribe();
@@ -60,7 +60,6 @@ export class ProductsComponent implements OnInit {
     this.product = {} as Product;
     this.showForm = false;
     this.isEditing = false;
-
   }
 
   create() {
@@ -74,7 +73,7 @@ export class ProductsComponent implements OnInit {
   }
 
   delete(modal: any, product: Product) {
-
+    this.deleteProduct = product;
     this.modalService.open(modal).result.then(
       (confirm) => {
         if (confirm) {
@@ -85,10 +84,7 @@ export class ProductsComponent implements OnInit {
           });
         }
       }
-
     );
-
-
   }
 
 }
