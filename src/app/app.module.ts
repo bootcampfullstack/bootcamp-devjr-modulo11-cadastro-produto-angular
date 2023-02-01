@@ -14,9 +14,9 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { registerLocaleData } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localePt, 'pt');
