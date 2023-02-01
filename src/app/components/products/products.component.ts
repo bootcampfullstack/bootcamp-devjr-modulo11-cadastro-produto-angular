@@ -57,7 +57,8 @@ export class ProductsComponent implements OnInit {
   }
 
   edit(product:Product){
-    console.log(product);
+   this.product = product;
+   this.showForm = true;
   }
 
   delete(product:Product){
