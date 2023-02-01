@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Category } from 'src/app/interfaces/Category';
 import { Product } from 'src/app/interfaces/Product';
 import { CategoryService } from 'src/app/services/category.service';
@@ -19,7 +20,10 @@ export class ProductsComponent implements OnInit {
   showForm: boolean = false;
   isEditing: boolean = false;
 
-  constructor(private categoryService: CategoryService, private productService: ProductService) { }
+  constructor(private categoryService: CategoryService, 
+              private productService: ProductService,
+              private modalService: NgbModal
+              ) { }
 
   ngOnInit(): void {
     this.loadProducts();
@@ -69,8 +73,15 @@ export class ProductsComponent implements OnInit {
     this.isEditing = true;
   }
 
-  delete(product: Product) {
-    console.log(product);
+  delete(modal: any, product: Product) {
+
+    this.modalService.open(modal);
+
+    // this.productService.delete(product).subscribe({
+    //   next: () => {
+    //     this.products = this.products.filter(p => p.id !== product.id);
+    //   }
+    // });
   }
 
 }

@@ -35,7 +35,7 @@
                             </td>
                             <td class="text-end">
                                 <button class="btn p-1" (click)="edit(product)" ><i class="bi bi-pencil"></i></button>
-                                <button class="btn p-1" (click)="delete(product)"><i class="bi bi-trash"></i></button>
+                                <button class="btn p-1" (click)="delete(confirmModal, product)"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -43,4 +43,10 @@
             </div>
         </div>
     </div>
+
+    <ng-template #confirmModal>
+        <h1>Modal Exemplo</h1>
+    </ng-template>
+
+
 </div>
