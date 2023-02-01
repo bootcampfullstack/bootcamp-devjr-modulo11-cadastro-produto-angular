@@ -20,10 +20,10 @@ export class ProductsComponent implements OnInit {
   showForm: boolean = false;
   isEditing: boolean = false;
 
-  constructor(private categoryService: CategoryService, 
-              private productService: ProductService,
-              private modalService: NgbModal
-              ) { }
+  constructor(private categoryService: CategoryService,
+    private productService: ProductService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.loadProducts();
@@ -75,13 +75,20 @@ export class ProductsComponent implements OnInit {
 
   delete(modal: any, product: Product) {
 
-    this.modalService.open(modal);
+    this.modalService.open(modal).result.then(
+      (confirm) => {
+        if (confirm) {
+          this.productService.delete(product).subscribe({
+            next: () => {
+              this.products = this.products.filter(p => p.id !== product.id);
+            }
+          });
+        }
+      }
 
-    // this.productService.delete(product).subscribe({
-    //   next: () => {
-    //     this.products = this.products.filter(p => p.id !== product.id);
-    //   }
-    // });
+    );
+
+
   }
 
 }

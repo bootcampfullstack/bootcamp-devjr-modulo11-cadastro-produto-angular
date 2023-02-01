@@ -44,8 +44,18 @@
         </div>
     </div>
 
-    <ng-template #confirmModal>
-        <h1>Modal Exemplo</h1>
+    <ng-template #confirmModal  let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title">Remover Produto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.close()"></button>
+          </div>
+          <div class="modal-body">
+            <p>Deseja remover o produto?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="modal.close(true)">Confirmar</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close()">Cancelar</button>
+          </div>
     </ng-template>
 
 
