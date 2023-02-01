@@ -24,11 +24,11 @@ export class ProductComponent implements OnInit {
   }
 
   save(){
-    this.saveEmitter.emit();
+    this.saveEmitter.emit(true);
   }
 
   cancel(){
-    this.product = {} as Product;
+    this.saveEmitter.emit(false);
   }
 
 }
