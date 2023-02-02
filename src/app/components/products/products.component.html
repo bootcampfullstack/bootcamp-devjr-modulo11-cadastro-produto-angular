@@ -3,7 +3,6 @@
     <app-product *ngIf="showForm"   [categories]="categories" [product]="product" (saveEmitter)="saveProduct($event)"></app-product>
 
     <div *ngIf="!showForm">
-
         <button class="btn btn-primary" (click)="create()">Novo</button>
         <div class="display-6">
             Produtos Cadastrados:
